@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="font-sans min-h-screen bg-gray-50 text-gray-900">
       <NavBar />
-      <main className="max-w-4xl mx-auto px-4 py-16 flex flex-col items-center text-center">
+      <main className="max-w-4xl mx-auto px-4 pt-[96px] pb-16 flex flex-col items-center text-center">
         <h1 className="text-4xl font-extrabold mb-4">Parker Precision Web</h1>
         <p className="text-lg mb-8">
           Professional web contractor specializing in creating small, custom
