@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./css/globals.css";
-import { geistMono, geistSans } from "./css/layout.css";
+import { inter } from "./css/layout.css";
 
 export const metadata: Metadata = {
   title: "Parker Precision Web",
@@ -14,11 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased text-2xl font-extrabold`}
-      >
-        {children}
-      </body>
+      <body className={`${inter.variable} antialiased`}>{children}</body>
     </html>
   );
 }
