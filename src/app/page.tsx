@@ -1,7 +1,54 @@
+"use client";
+
 import NavBar from "./components/navbar";
 import Image from "next/image";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    // Carousel functionality
+    const carousel = document.getElementById("featured-carousel");
+    const dots = document.querySelectorAll(".carousel-dot");
+    const prevBtn = document.getElementById("carousel-prev");
+    const nextBtn = document.getElementById("carousel-next");
+
+    let currentSlide = 0;
+    const totalSlides = 3;
+
+    function updateCarousel() {
+      if (carousel) {
+        carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+      }
+
+      // Update dots
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentSlide);
+        dot.classList.toggle("bg-opacity-100", index === currentSlide);
+        dot.classList.toggle("bg-opacity-50", index !== currentSlide);
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    }
+
+    // Event listeners
+    if (prevBtn) prevBtn.addEventListener("click", prevSlide);
+    if (nextBtn) nextBtn.addEventListener("click", nextSlide);
+
+    // Cleanup
+    return () => {
+      if (prevBtn) prevBtn.removeEventListener("click", prevSlide);
+      if (nextBtn) nextBtn.removeEventListener("click", nextSlide);
+    };
+  }, []);
+
   return (
     <div className="font-sans min-h-screen bg-white text-gray-900">
       <NavBar />
@@ -180,54 +227,218 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Why Choose Me Section */}
-        <div className="bg-gray-50 border border-gray-200 rounded-3xl p-8 md:p-12 mb-16 shadow-lg">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold mb-4 text-black">
-              Why Choose Parker Precision Web?
+        {/* Featured Work Carousel */}
+        <div className="mb-20">
+          <div className="text-center mb-16">
+            <h3 className="text-4xl font-bold mb-6 text-black">
+              Featured Work
             </h3>
-            <div className="w-24 h-1 bg-black mx-auto rounded-full"></div>
+            <div className="w-32 h-2 bg-black mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h4 className="text-xl font-bold mb-4 text-black">
-                Personalized Approach
-              </h4>
-              <p className="text-gray-600 mb-6">
-                Every project starts with understanding your business, goals,
-                and target audience, for a personalized web-app that represents
-                YOUR brand.
-              </p>
+          <div className="relative overflow-hidden rounded-3xl shadow-2xl">
+            {/* Carousel Container */}
+            <div
+              className="flex transition-transform duration-700 ease-in-out"
+              id="featured-carousel"
+            >
+              {/* Client 1 - MX */}
+              <div className="w-full flex-shrink-0">
+                <div className="bg-gradient-to-br from-blue-900 to-blue-800 text-white p-12 md:p-16">
+                  <div className="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                      <h4 className="text-3xl font-bold mb-6">
+                        Financial Technology Platform
+                      </h4>
+                      <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                        Developed and maintained critical components of
+                        MX&apos;s financial data aggregation platform, working
+                        on user-facing dashboards and API integrations.
+                        Contributed to improving platform performance and user
+                        experience for millions of users.
+                      </p>
+                      <div className="flex flex-wrap gap-4">
+                        <span className="bg-white text-blue-900 px-4 py-2 rounded-full text-sm font-semibold">
+                          React/TypeScript
+                        </span>
+                        <span className="bg-white text-blue-900 px-4 py-2 rounded-full text-sm font-semibold">
+                          API Development
+                        </span>
+                        <span className="bg-white text-blue-900 px-4 py-2 rounded-full text-sm font-semibold">
+                          Performance Optimization
+                        </span>
+                      </div>
+                    </div>
+                    <div className="bg-blue-700 rounded-2xl p-8 text-center">
+                      <div className="text-4xl font-bold text-white mb-4">
+                        MX Technologies
+                      </div>
+                      <h5 className="text-2xl font-bold mb-2">
+                        Money Experience
+                      </h5>
+                      <p className="text-blue-300 mb-4">Lehi, UT</p>
+                      <a
+                        href="https://www.linkedin.com/in/parkerfam/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block bg-white text-blue-700 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-50 transition-colors duration-300"
+                      >
+                        View on LinkedIn
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-              <h4 className="text-xl font-bold mb-4 text-black">
-                Results-Driven Design
-              </h4>
-              <p className="text-gray-600 mb-6">
-                I don&apos;t just build pretty websites - I create digital
-                assets that drive conversions and grow your business.
-              </p>
+              {/* Client 2 - Domo */}
+              <div className="w-full flex-shrink-0">
+                <div className="bg-gradient-to-br from-purple-900 to-purple-800 text-white p-12 md:p-16">
+                  <div className="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                      <h4 className="text-3xl font-bold mb-6">
+                        Business Intelligence Dashboard
+                      </h4>
+                      <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                        Built interactive data visualization components and
+                        dashboard features for Domo&apos;s business intelligence
+                        platform. Implemented real-time data streaming and
+                        custom chart configurations for enterprise clients.
+                      </p>
+                      <div className="flex flex-wrap gap-4">
+                        <span className="bg-white text-purple-900 px-4 py-2 rounded-full text-sm font-semibold">
+                          Data Visualization
+                        </span>
+                        <span className="bg-white text-purple-900 px-4 py-2 rounded-full text-sm font-semibold">
+                          Real-time Updates
+                        </span>
+                        <span className="bg-white text-purple-900 px-4 py-2 rounded-full text-sm font-semibold">
+                          Enterprise UI/UX
+                        </span>
+                      </div>
+                    </div>
+                    <div className="bg-purple-700 rounded-2xl p-8 text-center">
+                      <div className="text-4xl font-bold text-white mb-4">
+                        DOMO
+                      </div>
+                      <h5 className="text-2xl font-bold mb-2">
+                        Business Intelligence
+                      </h5>
+                      <p className="text-purple-300 mb-4">American Fork, UT</p>
+                      <a
+                        href="https://www.linkedin.com/in/parkerfam/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block bg-white text-purple-700 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-purple-50 transition-colors duration-300"
+                      >
+                        View on LinkedIn
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Client 3 - Software Technology Group */}
+              <div className="w-full flex-shrink-0">
+                <div className="bg-gradient-to-br from-green-900 to-green-800 text-white p-12 md:p-16">
+                  <div className="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                      <h4 className="text-3xl font-bold mb-6">
+                        Custom Software Solutions
+                      </h4>
+                      <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                        Delivered custom software solutions for various clients
+                        through STG, including web applications, mobile
+                        interfaces, and system integrations. Collaborated with
+                        cross-functional teams to deliver high-quality, scalable
+                        solutions.
+                      </p>
+                      <div className="flex flex-wrap gap-4">
+                        <span className="bg-white text-green-900 px-4 py-2 rounded-full text-sm font-semibold">
+                          Full-Stack Development
+                        </span>
+                        <span className="bg-white text-green-900 px-4 py-2 rounded-full text-sm font-semibold">
+                          System Integration
+                        </span>
+                        <span className="bg-white text-green-900 px-4 py-2 rounded-full text-sm font-semibold">
+                          Agile Development
+                        </span>
+                      </div>
+                    </div>
+                    <div className="bg-green-700 rounded-2xl p-8 text-center">
+                      <div className="text-3xl font-bold text-white mb-4">
+                        STG
+                      </div>
+                      <h5 className="text-2xl font-bold mb-2">
+                        Software Technology Group
+                      </h5>
+                      <p className="text-green-300 mb-4">Salt Lake City, UT</p>
+                      <a
+                        href="https://www.linkedin.com/in/parkerfam/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block bg-white text-green-700 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-50 transition-colors duration-300"
+                      >
+                        View on LinkedIn
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div>
-              <h4 className="text-xl font-bold mb-4 text-black">
-                Building Brands and Web Apps Since 2018
-              </h4>
-              <p className="text-gray-600 mb-6">
-                With years of experience working with small businesses AND large
-                corporations across Utah, I can walk you towards your business
-                goals.
-              </p>
-
-              <h4 className="text-xl font-bold mb-4 text-black">
-                Transparent Process
-              </h4>
-              <p className="text-gray-600 mb-6">
-                Clear communication, regular updates, and no hidden fees.
-                You&apos;ll always know exactly what&apos;s happening with your
-                project.
-              </p>
+            {/* Navigation Dots */}
+            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
+              <button
+                className="w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all duration-300 carousel-dot active"
+                data-slide="0"
+              ></button>
+              <button
+                className="w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all duration-300 carousel-dot"
+                data-slide="1"
+              ></button>
+              <button
+                className="w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all duration-300 carousel-dot"
+                data-slide="2"
+              ></button>
             </div>
+
+            {/* Navigation Arrows */}
+            <button
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-70 hover:bg-opacity-90 text-white p-4 rounded-full transition-all duration-300 carousel-prev z-10"
+              id="carousel-prev"
+            >
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={3}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+            <button
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-70 hover:bg-opacity-90 text-white p-4 rounded-full transition-all duration-300 carousel-next z-10"
+              id="carousel-next"
+            >
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={3}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
           </div>
         </div>
 
