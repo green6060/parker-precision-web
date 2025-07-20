@@ -1,4 +1,5 @@
 import NavBar from "./components/navbar";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -10,35 +11,20 @@ export default function Home() {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           {/* Left Column - Text */}
           <div className="text-left">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-8 text-black leading-tight tracking-tight">
-              <div className="text-center mb-8">
-                <span className="text-white bg-gray-800 px-3 py-2 rounded-xl shadow-lg border-2 border-gray-700 transform -rotate-1 inline-block">
-                  Client-Leads
+            <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black mb-8 text-black leading-tight tracking-tight">
+              <div className="text-left mb-4">
+                <span className="text-black bg-white px-3 py-2 rounded-xl shadow-xl border-2 border-gray-300 transform -rotate-1 inline-block whitespace-nowrap">
+                  Turn Client-Leads...
                 </span>
               </div>
-              <div className="text-center mb-6">
-                <svg
-                  className="w-12 h-12 text-gray-700 mx-auto"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={4}
-                    d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                  />
-                </svg>
-              </div>
-              <div className="text-center">
-                <span className="text-black bg-white px-3 py-2 rounded-xl shadow-xl border-2 border-gray-300 transform rotate-1 inline-block">
-                  Ink-on-Skin
+              <div className="text-left">
+                <span className="text-white bg-gray-800 px-3 py-2 rounded-xl shadow-lg border-2 border-gray-700 transform rotate-1 inline-block whitespace-nowrap">
+                  ... Into Ink-on-Skin
                 </span>
               </div>
             </h1>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-8 text-gray-800 leading-relaxed">
-              Custom websites that convert visitors into customers.
+              Custom websites that convert leads into active clients
             </h2>
             <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
               Built specifically for small businesses who need results, not just
@@ -55,30 +41,15 @@ export default function Home() {
           </div>
 
           {/* Right Column - Image */}
-          <div className="relative">
-            <div className="bg-gray-100 border-2 border-gray-300 rounded-2xl aspect-square flex items-center justify-center overflow-hidden">
-              <div className="text-center p-8">
-                <svg
-                  className="w-24 h-24 mx-auto mb-4 text-gray-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1}
-                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  />
-                </svg>
-                <p className="text-gray-500 font-medium">
-                  Tattoo-themed hero image
-                </p>
-                <p className="text-sm text-gray-400 mt-2">
-                  Replace with striking black & white artwork
-                </p>
-              </div>
-            </div>
+          <div className="relative w-full h-full">
+            <Image
+              src="/skeleton_developer.jpeg"
+              alt="Skeleton developer illustration"
+              width={800}
+              height={1200}
+              className="w-full h-full object-cover object-center"
+              priority
+            />
           </div>
         </div>
 
