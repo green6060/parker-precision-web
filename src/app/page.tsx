@@ -7,37 +7,41 @@ export default function Home() {
       <NavBar />
 
       {/* Hero Section */}
-      <main className="max-w-6xl mx-auto px-4 pt-32 pb-16">
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+      <main className="mx-auto px-8 pt-32 pb-16">
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           {/* Left Column - Text */}
           <div className="text-left">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black mb-8 text-black leading-tight tracking-tight">
-              <div className="text-left mb-4">
-                <span className="text-black bg-white px-3 py-2 rounded-xl shadow-xl border-2 border-gray-300 transform -rotate-1 inline-block whitespace-nowrap">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-10 text-black leading-tight tracking-tight">
+              <div className="text-left mb-6">
+                <span className="text-black bg-white px-4 py-3 rounded-xl shadow-xl border-2 border-gray-300 transform -rotate-1 inline-block whitespace-nowrap">
                   Turn Client-Leads...
                 </span>
               </div>
               <div className="text-left">
-                <span className="text-white bg-gray-800 px-3 py-2 rounded-xl shadow-lg border-2 border-gray-700 transform rotate-1 inline-block whitespace-nowrap">
+                <span className="text-white bg-gray-800 px-4 py-3 rounded-xl shadow-lg border-2 border-gray-700 transform rotate-1 inline-block whitespace-nowrap">
                   ... Into Ink-on-Skin
                 </span>
               </div>
             </h1>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-8 text-gray-800 leading-relaxed">
-              Custom websites that convert leads into active clients
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-10 text-gray-800 leading-relaxed">
+              Custom websites that convert{" "}
+              <span className="underline decoration-gray-700 decoration-2">
+                leads
+              </span>{" "}
+              into{" "}
+              <span className="relative inline-block px-4 py-3 font-bold text-gray-900">
+                <div className="absolute inset-0 border-4 border-gray-700 rounded-full transform rotate-1 scale-105 opacity-80 translate-x-0.5 translate-y-0.5"></div>
+                <div className="absolute inset-0 border-4 border-gray-700 rounded-full transform -rotate-2 scale-95 opacity-60 -translate-x-1 -translate-y-0.5"></div>
+                <div className="absolute inset-0 border-4 border-gray-700 rounded-full transform rotate-3 scale-110 opacity-40 translate-x-1 -translate-y-1"></div>
+                <div className="absolute inset-0 border-4 border-gray-700 rounded-full transform -rotate-1 scale-100 opacity-70 translate-x-0.5 translate-y-1"></div>
+                <div className="absolute inset-0 border-4 border-gray-700 rounded-full transform rotate-2 scale-105 opacity-50 -translate-x-0.5 translate-y-0.5"></div>
+                <span className="relative z-10">active-clients</span>
+              </span>
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-600 mb-10 leading-relaxed">
               Built specifically for small businesses who need results, not just
               pretty pages.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="/contact"
-                className="inline-block bg-black text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition-all duration-300 font-bold text-lg border-2 border-black hover:border-gray-800 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
-                Get Your Free Consultation
-              </a>
-            </div>
           </div>
 
           {/* Right Column - Image */}
@@ -45,28 +49,38 @@ export default function Home() {
             <Image
               src="/skeleton_developer.jpeg"
               alt="Skeleton developer illustration"
-              width={800}
-              height={1200}
+              width={1000}
+              height={1500}
               className="w-full h-full object-cover object-center"
               priority
             />
           </div>
         </div>
 
+        {/* Centered CTA Button */}
+        <div className="text-center mb-20">
+          <a
+            href="/contact"
+            className="inline-block bg-black text-white px-16 py-8 rounded-xl hover:bg-gray-800 transition-all duration-300 font-bold text-2xl border-2 border-black hover:border-gray-800 shadow-xl hover:shadow-2xl transform hover:-translate-y-2"
+          >
+            Book a Free Consultation
+          </a>
+        </div>
+
         {/* Services Showcase */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold mb-4 text-black">
+        <div className="mb-20">
+          <div className="text-center mb-16">
+            <h3 className="text-4xl font-bold mb-6 text-black">
               What I Specialize In
             </h3>
-            <div className="w-24 h-1 bg-black mx-auto rounded-full"></div>
+            <div className="w-32 h-2 bg-black mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-gray-50 p-8 rounded-2xl border border-gray-200 hover:border-black transition-all duration-300 shadow-lg hover:shadow-xl">
-              <div className="w-16 h-16 bg-black rounded-xl flex items-center justify-center mb-6">
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="bg-gray-50 p-10 rounded-2xl border border-gray-200 hover:border-black transition-all duration-300 shadow-lg hover:shadow-xl">
+              <div className="w-20 h-20 bg-black rounded-xl flex items-center justify-center mb-8">
                 <svg
-                  className="w-8 h-8 text-white"
+                  className="w-10 h-10 text-white"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -79,19 +93,19 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h4 className="text-xl font-bold mb-4 text-black">
+              <h4 className="text-2xl font-bold mb-6 text-black">
                 Custom Website Development
               </h4>
-              <p className="text-gray-600">
+              <p className="text-lg text-gray-600">
                 Bespoke websites tailored to your brand, goals, and target
-                audience. No templates, no compromises.
+                audience.
               </p>
             </div>
 
-            <div className="bg-gray-50 p-8 rounded-2xl border border-gray-200 hover:border-black transition-all duration-300 shadow-lg hover:shadow-xl">
-              <div className="w-16 h-16 bg-black rounded-xl flex items-center justify-center mb-6">
+            <div className="bg-gray-50 p-10 rounded-2xl border border-gray-200 hover:border-black transition-all duration-300 shadow-lg hover:shadow-xl">
+              <div className="w-20 h-20 bg-black rounded-xl flex items-center justify-center mb-8">
                 <svg
-                  className="w-8 h-8 text-white"
+                  className="w-10 h-10 text-white"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -104,19 +118,20 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h4 className="text-xl font-bold mb-4 text-black">
+              <h4 className="text-2xl font-bold mb-6 text-black">
                 Performance Optimization
               </h4>
-              <p className="text-gray-600">
+              <p className="text-lg text-gray-600">
                 Lightning-fast websites that rank higher in search results and
-                provide exceptional user experiences.
+                move website visitors from &quot;visiting&quot; to
+                &quot;booking&quot;
               </p>
             </div>
 
-            <div className="bg-gray-50 p-8 rounded-2xl border border-gray-200 hover:border-black transition-all duration-300 shadow-lg hover:shadow-xl">
-              <div className="w-16 h-16 bg-black rounded-xl flex items-center justify-center mb-6">
+            <div className="bg-gray-50 p-10 rounded-2xl border border-gray-200 hover:border-black transition-all duration-300 shadow-lg hover:shadow-xl">
+              <div className="w-20 h-20 bg-black rounded-xl flex items-center justify-center mb-8">
                 <svg
-                  className="w-8 h-8 text-white"
+                  className="w-10 h-10 text-white"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -129,69 +144,19 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h4 className="text-xl font-bold mb-4 text-black">
+              <h4 className="text-2xl font-bold mb-6 text-black">
                 Mobile-First Design
               </h4>
-              <p className="text-gray-600">
+              <p className="text-lg text-gray-600">
                 Responsive designs that look and work perfectly on every device,
                 from phones to desktops.
               </p>
             </div>
 
-            <div className="bg-gray-50 p-8 rounded-2xl border border-gray-200 hover:border-black transition-all duration-300 shadow-lg hover:shadow-xl">
-              <div className="w-16 h-16 bg-black rounded-xl flex items-center justify-center mb-6">
+            <div className="bg-gray-50 p-10 rounded-2xl border border-gray-200 hover:border-black transition-all duration-300 shadow-lg hover:shadow-xl">
+              <div className="w-20 h-20 bg-black rounded-xl flex items-center justify-center mb-8">
                 <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-              </div>
-              <h4 className="text-xl font-bold mb-4 text-black">
-                SEO & Marketing
-              </h4>
-              <p className="text-gray-600">
-                Built-in SEO optimization and marketing strategies to help you
-                get found and convert visitors.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 p-8 rounded-2xl border border-gray-200 hover:border-black transition-all duration-300 shadow-lg hover:shadow-xl">
-              <div className="w-16 h-16 bg-black rounded-xl flex items-center justify-center mb-6">
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                  />
-                </svg>
-              </div>
-              <h4 className="text-xl font-bold mb-4 text-black">
-                Ongoing Support
-              </h4>
-              <p className="text-gray-600">
-                Continuous maintenance, updates, and support to keep your
-                website running smoothly and securely.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 p-8 rounded-2xl border border-gray-200 hover:border-black transition-all duration-300 shadow-lg hover:shadow-xl">
-              <div className="w-16 h-16 bg-black rounded-xl flex items-center justify-center mb-6">
-                <svg
-                  className="w-8 h-8 text-white"
+                  className="w-10 h-10 text-white"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -204,10 +169,10 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h4 className="text-xl font-bold mb-4 text-black">
+              <h4 className="text-2xl font-bold mb-6 text-black">
                 E-commerce Solutions
               </h4>
-              <p className="text-gray-600">
+              <p className="text-lg text-gray-600">
                 Complete online store setups with secure payment processing and
                 inventory management.
               </p>
@@ -231,7 +196,8 @@ export default function Home() {
               </h4>
               <p className="text-gray-600 mb-6">
                 Every project starts with understanding your business, goals,
-                and target audience. No cookie-cutter solutions here.
+                and target audience, for a personalized web-app that represents
+                YOUR brand.
               </p>
 
               <h4 className="text-xl font-bold mb-4 text-black">
@@ -245,11 +211,12 @@ export default function Home() {
 
             <div>
               <h4 className="text-xl font-bold mb-4 text-black">
-                Ongoing Partnership
+                Building Brands and Web Apps Since 2018
               </h4>
               <p className="text-gray-600 mb-6">
-                Your success is my success. I provide ongoing support and
-                maintenance to ensure your website continues to perform.
+                With years of experience working with small businesses AND large
+                corporations across Utah, I can walk you towards your business
+                goals.
               </p>
 
               <h4 className="text-xl font-bold mb-4 text-black">
