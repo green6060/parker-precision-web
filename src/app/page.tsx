@@ -50,11 +50,11 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="font-sans min-h-screen bg-white text-gray-900">
+    <div className="font-sans min-h-screen bg-gray-50 text-gray-900">
       <NavBar />
 
       {/* Hero Section */}
-      <main className="mx-auto px-8 pt-32 pb-16">
+      <main className="mx-auto px-4 md:px-8 lg:px-32 pt-32 pb-16">
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           {/* Left Column - Text */}
           <div className="text-left">
@@ -94,8 +94,8 @@ export default function Home() {
           {/* Right Column - Image */}
           <div className="relative w-full h-full">
             <Image
-              src="/skeleton_developer.jpeg"
-              alt="Skeleton developer illustration"
+              src="/skeleton-developer-hero-rmv-bkgd.png"
+              alt="Skeleton developer hero illustration"
               width={1000}
               height={1500}
               className="w-full h-full object-cover object-center"
