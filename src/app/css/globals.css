@@ -127,6 +127,33 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+/* Optimize image loading */
+img {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* Lazy loading optimizations */
+iframe[loading="lazy"] {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 1000px;
+}
+
+/* Reduce layout shifts */
+.hero-content {
+  contain: layout style paint;
+}
+
+/* Optimize backdrop filters for performance */
+.backdrop-blur-sm {
+  will-change: backdrop-filter;
+}
+
 /* Content container with fade effect */
 .content-container {
   background: linear-gradient(

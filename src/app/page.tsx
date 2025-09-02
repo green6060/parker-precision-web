@@ -1,6 +1,29 @@
+"use client";
+
 import NavBar from "./components/navbar";
+import { useState, useRef, useEffect } from "react";
 
 export default function Home() {
+  const [isBookingVisible, setIsBookingVisible] = useState(false);
+  const bookingRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsBookingVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: "100px" }
+    );
+
+    if (bookingRef.current) {
+      observer.observe(bookingRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
   return (
     <div className="font-sans min-h-screen bg-background text-foreground">
       <NavBar />
@@ -161,7 +184,7 @@ export default function Home() {
               </div>
 
               {/* Integrated Booking Section */}
-              <div className="text-center px-4">
+              <div className="text-center px-4" ref={bookingRef}>
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4 sm:mb-6">
                   Let&apos;s Build Your Success Story
                 </h2>
@@ -172,20 +195,33 @@ export default function Home() {
 
                 {/* Embedded Booking Widget */}
                 <div className="bg-black/20 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/10 shadow-2xl max-w-4xl mx-auto">
-                  <iframe
-                    src="https://zcal.co/dallasjamesparker/web-consult"
-                    width="100%"
-                    height="1000"
-                    frameBorder="0"
-                    title="Book a consultation with Parker Precision Web"
-                    className="rounded-lg"
-                    style={{
-                      minHeight: "1000px",
-                      border: "none",
-                      overflow: "hidden",
-                    }}
-                    scrolling="no"
-                  ></iframe>
+                  {isBookingVisible ? (
+                    <iframe
+                      src="https://zcal.co/dallasjamesparker/web-consult"
+                      width="100%"
+                      height="1000"
+                      frameBorder="0"
+                      title="Book a consultation with Parker Precision Web"
+                      className="rounded-lg"
+                      style={{
+                        minHeight: "1000px",
+                        border: "none",
+                        overflow: "hidden",
+                      }}
+                      scrolling="no"
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  ) : (
+                    <div
+                      className="rounded-lg bg-gray-800/50 flex items-center justify-center"
+                      style={{ minHeight: "1000px" }}
+                    >
+                      <div className="text-white text-lg">
+                        Loading booking widget...
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
