@@ -145,6 +145,57 @@ html {
 
 /* Rustic accent color for navbar */
 .rustic-accent {
-  color: #8B4513;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  background: linear-gradient(to right, #d97706, #ea580c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+}
+
+/* Dynamic content spacing based on navbar height */
+.hero-content {
+  padding-top: calc(80px + 3vh);
+  min-height: calc(100vh - 80px);
+  padding-bottom: 2rem;
+}
+
+/* Mobile-specific adjustments for scrollable content */
+@media (max-width: 768px) {
+  .hero-content {
+    min-height: auto;
+    padding-bottom: 3rem;
+  }
+}
+
+/* Responsive navbar height adjustments */
+@media (min-width: 640px) {
+  .hero-content {
+    padding-top: calc(80px + 4vh);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-content {
+    padding-top: calc(80px + 5vh);
+  }
+}
+
+/* Dynamic navbar logo scaling */
+.navbar-logo {
+  font-size: clamp(1.125rem, 2.5vw, 2.5rem);
+  line-height: 1.1;
+  word-spacing: -0.05em;
+}
+
+/* Responsive navbar height adjustments */
+@media (max-width: 640px) {
+  .navbar-logo {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+  }
+}
+
+@media (min-width: 1280px) {
+  .navbar-logo {
+    font-size: clamp(2rem, 2.5vw, 3rem);
+  }
 }
